@@ -1,0 +1,10 @@
+<div class="carousel-container">
+  {{currentIndex}}
+  <div class="carousel">
+    <div *ngFor="let quote of quotes; let i = index" [class.active]="i === currentIndex">
+      <p>{{ quote.text }}</p>
+      <p>{{ i === currentIndex }}</p>
+      <p class="author">{{ quote.author }}</p>
+    </div>
+  </div>
+</div>
