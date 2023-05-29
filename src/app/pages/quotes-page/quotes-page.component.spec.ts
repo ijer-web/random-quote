@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuotesPageComponent } from './quotes-page.component';
+import {CommonModule} from '@angular/common';
 
 describe('QuotesPageComponent', () => {
   let component: QuotesPageComponent;
@@ -8,7 +9,7 @@ describe('QuotesPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [QuotesPageComponent]
+      imports: [QuotesPageComponent, CommonModule]
     });
     fixture = TestBed.createComponent(QuotesPageComponent);
     component = fixture.componentInstance;

@@ -5,6 +5,9 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  display: block;
+  overflow: hidden;
 }
 
 h1,
@@ -25,7 +28,7 @@ p {
 }
 
 .toolbar {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -35,6 +38,7 @@ p {
   background-color: #1976d2;
   color: white;
   font-weight: 600;
+  margin-bottom: 6rem;
 }
 
 .toolbar img {

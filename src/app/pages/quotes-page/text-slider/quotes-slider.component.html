@@ -1,0 +1,51 @@
+<div class="card highlight-card">
+
+  <img src="assets/svg/des-ink-well-svgrepo-com.svg">
+
+
+</div>
+
+<div class="carousel">
+  <div class="carousel-container">
+    <button mat-raised-button class="carousel-control pre" (click)="pre()">
+      <mat-icon aria-label="Example icon-button with a heart icon">keyboard_backspace</mat-icon>
+    </button>
+    <div class="carousel-item-container">
+      <div class="carousel-item"
+           *ngFor="let item of quotes; index as i;"
+           [class.active]="activeItem == i">
+
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              <img [src]="item?.avatar" alt="avatar">
+            </div>
+            <mat-card-subtitle>{{item.author}}</mat-card-subtitle>
+            <div class="like">
+              <button *ngIf="item.liked" mat-icon-button color="warn" (click)="like(i)">
+                <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              </button>
+              <button *ngIf="!item.liked" mat-icon-button (click)="like(i)">
+                <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              </button>
+            </div>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="text-content">
+              {{item.content}}
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="like()">LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <button mat-raised-button class="carousel-control next" (click)="next()">
+      <mat-icon aria-label="Example icon-button with a heart icon">keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>
+
+

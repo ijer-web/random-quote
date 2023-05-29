@@ -1,0 +1,157 @@
+:host {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.card.highlight-card {
+  border-radius: 4px;
+
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  position: absolute;
+  width: 100%;
+  top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+
+  img {
+    height: 6rem;
+    width: 6rem;
+    background-color: #1976d2;
+    border-radius: 50%;
+    right: 35%;
+    position: relative;
+  }
+
+}
+
+.carousel {
+  height: 15rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  &-container {
+    width: 60%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &-item-container {
+    width: 85%;
+    height: 100%;
+
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  &-item:has(.high) {
+    background-color: #24292e;
+  }
+
+  &-item {
+    width: 100%;
+    position: absolute;
+    left: -100%;
+    box-sizing: border-box;
+    transition: left 0.5s;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      display: none;
+    }
+
+    &.active {
+      left: 0;
+
+      & + .carousel-item {
+        left: 100%;
+      }
+
+      ::ng-deep {
+        mat-card-header {
+          min-height: 50px;
+
+          .like {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+          }
+        }
+
+        .mat-mdc-card {
+          width: 99%;
+        }
+
+        .mat-mdc-card-avatar {
+          width: 3rem;
+          height: 3rem;
+          background-color: lightgray;
+          margin-bottom: 0;
+
+          img {
+            height: 100%;
+            display: block;
+          }
+        }
+
+        .mat-mdc-card-content {
+          display: flex;
+          justify-content: center;
+        }
+
+        .text-content {
+          width: calc(100% - 100px);
+          font-size: 16px;
+          font-style: italic;
+          font-weight: 500;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    @for $i from 1 through 1000 {
+      &:nth-child(#{$i}) {
+        z-index: 1000 - $i + 1;
+      }
+    }
+
+
+  }
+
+  &-control {
+    height: 30px;
+    background-color: white;
+    mat-icon {
+      font-size: 2rem;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      color: #1976d2;
+    }
+    &.next{
+      transform: scale(-1,1);
+    }
+  }
+}
+
+.agree {
+  background: pink;
+  text-align: center;
+}
