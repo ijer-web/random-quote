@@ -4,20 +4,22 @@ import { TextSliderComponent } from '../../shared/components/text-slider/text-sl
 import { Quote } from '../../shared/models/quote';
 import { QuotesService } from '../../core/services/quotes.service/quotes.service';
 import { Settings } from '../../core/settings/settings';
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { ConfirmationDialogComponent } from "../../shared/components/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-quotes-page',
   standalone: true,
-  imports: [CommonModule, TextSliderComponent],
+  imports: [CommonModule, TextSliderComponent, MatDialogModule],
   templateUrl: './quotes-page.component.html',
   styleUrls: ['./quotes-page.component.scss']
 })
 export class QuotesPageComponent implements OnInit {
   public quotes: Quote[] = [];
 
-  constructor(private quotesService: QuotesService) {
+  constructor(private quotesService: QuotesService,
+              public dialog: MatDialog) {
   }
-
 
   ngOnInit(): void {
     this.checkQuantityBrandNewQuotes();
@@ -52,4 +54,16 @@ export class QuotesPageComponent implements OnInit {
     return !this.quotes.map(quote => quote.content).includes(checkQuote.content)
   }
 
+  onShareItem(event: Quote) {
+    this.showDialog(event.content || '')
+  }
+
+  private showDialog(content: string) {
+    this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        content
+      }
+    });
+
+  }
 }

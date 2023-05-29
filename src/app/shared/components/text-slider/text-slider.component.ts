@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Quote } from '../../models/quote';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,10 +12,11 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './text-slider.component.html',
   styleUrls: ['./text-slider.component.scss']
 })
-export class TextSliderComponent implements OnInit {
+export class TextSliderComponent {
 
   @Input() quotes: Quote[] = [];
   @Output() itemWasShowed: EventEmitter<number> = new EventEmitter<number>();
+  @Output() shareItem: EventEmitter<Quote> = new EventEmitter<Quote>();
 
   activeItem: number = 1;
 
@@ -30,16 +31,13 @@ export class TextSliderComponent implements OnInit {
     this.activeItem--;
   }
 
-  ngOnInit(): void {
-  }
-
   like(index?: any) {
     index = index || this.activeItem;
     this.quotes[index].liked = !this.quotes[index].liked;
   }
 
-  share(index?: any) {
-
+  share() {
+    this.shareItem.emit(this.quotes[this.activeItem]);
   }
 }
 
