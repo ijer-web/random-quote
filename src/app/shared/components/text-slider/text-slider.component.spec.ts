@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuotesSliderComponent } from './quotes-slider.component';
+import { TextSliderComponent } from './text-slider.component';
 
 describe('QuotesSliderComponent', () => {
-  let component: QuotesSliderComponent;
-  let fixture: ComponentFixture<QuotesSliderComponent>;
+  let component: TextSliderComponent;
+  let fixture: ComponentFixture<TextSliderComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [QuotesSliderComponent]
+      imports: [TextSliderComponent]
     });
-    fixture = TestBed.createComponent(QuotesSliderComponent);
+    fixture = TestBed.createComponent(TextSliderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
