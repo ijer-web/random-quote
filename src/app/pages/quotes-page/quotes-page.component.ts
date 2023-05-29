@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {QuotesSliderComponent} from './text-slider/quotes-slider.component';
-import {Quote} from '../../shared/models/quote';
-import {QuotesService} from '../../core/services/quotes.service/quotes.service';
-import {Settings} from '../../core/settings/settings';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { QuotesSliderComponent } from './text-slider/quotes-slider.component';
+import { Quote } from '../../shared/models/quote';
+import { QuotesService } from '../../core/services/quotes.service/quotes.service';
+import { Settings } from '../../core/settings/settings';
 
 @Component({
   selector: 'app-quotes-page',

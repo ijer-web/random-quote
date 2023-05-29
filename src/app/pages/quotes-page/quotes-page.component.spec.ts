@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuotesPageComponent } from './quotes-page.component';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('QuotesPageComponent', () => {
   let component: QuotesPageComponent;
@@ -9,7 +10,7 @@ describe('QuotesPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [QuotesPageComponent, CommonModule]
+      imports: [QuotesPageComponent, CommonModule, HttpClientModule]
     });
     fixture = TestBed.createComponent(QuotesPageComponent);
     component = fixture.componentInstance;
